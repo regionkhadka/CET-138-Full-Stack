@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  body { font-family: 'Segoe UI', sans-serif; background: #f8f9fa; }
+  .hero { background: linear-gradient(135deg, #006064, #00acc1); color: white; padding: 60px 0; }
+  .example-box { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 2px 15px rgba(0,0,0,0.08); margin-bottom: 30px; }
+  .code-block { background: #1e1e1e; color: #d4d4d4; padding: 16px; border-radius: 8px; font-family: monospace; font-size: 0.88rem; overflow-x: auto; white-space: pre; }
+  .prop { color: #9cdcfe; }
+  .val  { color: #ce9178; }
+  .sel  { color: #d7ba7d; }
+  .output-box { border: 2px dashed #dee2e6; border-radius: 8px; padding: 16px; background: #fdfdfd; margin-top: 12px; }
+  .nav-link { color: rgba(255,255,255,0.85) !important; }
+  .nav-link:hover { color: #fff !important; }
+
+  /* Flexbox demo */
+  .flex-demo { display: flex; gap: 10px; flex-wrap: wrap; padding: 10px; background: #e0f7fa; border-radius: 8px; }
+  .flex-item { background: #00acc1; color: white; padding: 12px 20px; border-radius: 6px; font-weight: 600; }
+
+  /* Grid demo */
+  .grid-demo { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .grid-item { background: #006064; color: white; padding: 20px; text-align: center; border-radius: 6px; font-weight: 600; }
+
+  /* Animation demo */
+  @keyframes slideIn { from { transform: translateX(-60px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+  @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+  .anim-box { width: 100px; height: 100px; background: #00acc1; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; cursor: pointer; transition: background 0.3s; }
+  .anim-box:hover { background: #006064; animation: pulse 0.5s ease; }
+  .slide-demo { animation: slideIn 1s ease; background: #006064; color: white; padding: 12px 20px; border-radius: 8px; display: inline-block; }
+
+  /* Box model demo */
+  .box-model-outer { background: #ffcc80; padding: 20px; border-radius: 8px; display: inline-block; }
+  .box-model-border { background: #a5d6a7; border: 4px solid #388e3c; padding: 20px; border-radius: 4px; }
+  .box-model-inner  { background: #90caf9; padding: 16px; text-align: center; font-weight: 600; }
+
+  /* Specificity demo */
+  .spec-p { color: blue; }
+  #spec-id { color: green; }
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg" style="background:#006064;">
+  <div class="container">
+    <a class="navbar-brand text-white fw-bold" href="index.html">&#8592; Home</a>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="fullstack.html">Full Stack</a></li>
+        <li class="nav-item"><a class="nav-link" href="html.html">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" href="bootstrap.html">Bootstrap</a></li>
+        <li class="nav-item"><a class="nav-link" href="javascript.html">JavaScript</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Me</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="hero text-center">
+  <div class="container">
+    <h1 class="display-5 fw-bold">&#127912; CSS</h1>
+    <p class="lead">Cascading Style Sheets — controlling the appearance and layout of web pages</p>
+  </div>
+</section>
+
+<div class="container py-5">
+
+  <p class="fs-5 mb-5">Before learning CSS properly, I used to wonder how websites looked so polished and professional. CSS was frustrating until I discovered Flexbox. Before that, I was trying to align everything with margins and it was a mess. This page shows the layout tools that finally made sense to me, especially the Grid system. </p>
+
+  <!-- Box Model -->
+  <div class="example-box">
+    <h3 class="fw-bold">&#128230; 1. The CSS Box Model</h3>
+    <p>Every HTML element is a rectangular box. The box model defines how <strong>content</strong>, <strong>padding</strong>, <strong>border</strong>, and <strong>margin</strong> layer around it. Understanding this is essential for accurate layouts.</p>
+    <div class="code-block"><span class="sel">.box</span> {
+  <span class="prop">margin</span>:  <span class="val">20px</span>;   /* Space outside the border */
+  <span class="prop">border</span>:  <span class="val">4px solid green</span>;
+  <span class="prop">padding</span>: <span class="val">20px</span>;   /* Space inside the border */
+  <span class="prop">width</span>:   <span class="val">200px</span>;  /* Content width */
+}</div>
+    <div class="output-box text-center">
+      <div class="box-model-outer">
+        <small class="d-block text-center mb-1" style="color:#e65100"><strong>margin (orange)</strong></small>
+        <div class="box-model-border">
+          <small class="d-block text-center mb-1" style="color:#1b5e20"><strong>border (green)</strong></small>
+          <div class="box-model-inner">
+            <small style="color:#0d47a1"><strong>padding (blue)</strong></small><br>
+            <span>CONTENT</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flexbox -->
+  <div class="example-box">
+    <h3 class="fw-bold">&#8621; 2. Flexbox Layout</h3>
+    <p>Flexbox is a one-dimensional layout method for arranging items in rows or columns. It makes it easy to distribute space and align items dynamically.</p>
+    <div class="code-block"><span class="sel">.container</span> {
+  <span class="prop">display</span>:         <span class="val">flex</span>;
+  <span class="prop">justify-content</span>: <span class="val">space-between</span>;  /* Horizontal alignment */
+  <span class="prop">align-items</span>:     <span class="val">center</span>;         /* Vertical alignment */
+  <span class="prop">gap</span>:             <span class="val">10px</span>;
+}</div>
+    <div class="output-box">
+      <strong>Live Demo:</strong>
+      <div class="flex-demo mt-2" id="flexDemo">
+        <div class="flex-item">Item 1</div>
+        <div class="flex-item">Item 2</div>
+        <div class="flex-item">Item 3</div>
+      </div>
+      <div class="mt-2">
+        <label class="me-2"><strong>justify-content:</strong></label>
+        <select class="form-select form-select-sm d-inline-block w-auto" onchange="document.getElementById('flexDemo').style.justifyContent=this.value">
+          <option value="flex-start">flex-start</option>
+          <option value="center">center</option>
+          <option value="space-between">space-between</option>
+          <option value="space-around">space-around</option>
+          <option value="flex-end">flex-end</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Grid -->
+  <div class="example-box">
+    <h3 class="fw-bold">&#9638; 3. CSS Grid Layout</h3>
+    <p>CSS Grid is a two-dimensional layout system for the web, allowing control over both rows and columns simultaneously. It is ideal for page layouts.</p>
+    <div class="code-block"><span class="sel">.grid</span> {
+  <span class="prop">display</span>:               <span class="val">grid</span>;
+  <span class="prop">grid-template-columns</span>: <span class="val">repeat(3, 1fr)</span>;
+  <span class="prop">gap</span>:                  <span class="val">10px</span>;
+}</div>
+    <div class="output-box">
+      <strong>Live Demo (3-column grid):</strong>
+      <div class="grid-demo mt-2">
+        <div class="grid-item">Column 1</div>
+        <div class="grid-item">Column 2</div>
+        <div class="grid-item">Column 3</div>
+        <div class="grid-item">Column 4</div>
+        <div class="grid-item">Column 5</div>
+        <div class="grid-item">Column 6</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Animations -->
+  <div class="example-box">
+    <h3 class="fw-bold">&#127968; 4. CSS Transitions &amp; Animations</h3>
+    <p>CSS can animate properties using <code>transition</code> for simple state changes and <code>@keyframes</code> for multi-step animations — without JavaScript.</p>
+    <div class="code-block"><span class="sel">@keyframes</span> slideIn {
+  <span class="sel">from</span> { <span class="prop">transform</span>: <span class="val">translateX(-60px)</span>; <span class="prop">opacity</span>: <span class="val">0</span>; }
+  <span class="sel">to</span>   { <span class="prop">transform</span>: <span class="val">translateX(0)</span>;    <span class="prop">opacity</span>: <span class="val">1</span>; }
+}
+<span class="sel">.box</span> { <span class="prop">animation</span>: <span class="val">slideIn 1s ease</span>; }</div>
+    <div class="output-box">
+      <div class="d-flex align-items-center gap-4 flex-wrap mt-2">
+        <div>
+          <strong>Hover me (transition):</strong><br>
+          <div class="anim-box mt-2">Hover</div>
+        </div>
+        <div>
+          <strong>@keyframes animation:</strong><br>
+          <div class="slide-demo mt-2" id="slideElem">Slide In!</div>
+          <button class="btn btn-sm btn-outline-secondary mt-2" onclick="replayAnim()">Replay</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Responsive -->
+  <div class="example-box">
+    <h3 class="fw-bold">&#128241; 5. Responsive Design with Media Queries</h3>
+    <p>Media queries allow different styles to be applied at different screen sizes. This is the foundation of responsive, mobile-first design.</p>
+    <div class="code-block"><span class="sel">/* Mobile first — base styles for all screens */</span>
+<span class="sel">.card</span> { <span class="prop">width</span>: <span class="val">100%</span>; }
+
+<span class="sel">@media (min-width: 768px)</span> {
+  <span class="sel">.card</span> { <span class="prop">width</span>: <span class="val">50%</span>; }
+}
+<span class="sel">@media (min-width: 1024px)</span> {
+  <span class="sel">.card</span> { <span class="prop">width</span>: <span class="val">33%</span>; }
+}</div>
+    <div class="output-box">
+      <strong>This very portfolio is responsive!</strong> Resize your browser window to see the grid layout change between 1, 2, and 3 columns automatically.
+    </div>
+  </div>
+  <div class="example-box">
+  <h3 class="fw-bold">&#127775; 6. CSS Custom Properties (Variables)</h3>
+  <p>CSS variables allow you to store reusable values — like brand colours — in one place. Changing one variable updates every element that uses it.</p>
+  <div style="background:#1e1e1e; color:#d4d4d4; padding:16px; border-radius:8px; font-family:monospace; font-size:0.88rem; white-space:pre;"><span style="color:#d7ba7d">:root</span> {
+  <span style="color:#9cdcfe">--primary-color</span>: <span style="color:#ce9178">#006064</span>;
+  <span style="color:#9cdcfe">--font-size-lg</span>:  <span style="color:#ce9178">1.25rem</span>;
+}
+<span style="color:#d7ba7d">.button</span> {
+  <span style="color:#9cdcfe">background</span>: <span style="color:#ce9178">var(--primary-color)</span>;
+  <span style="color:#9cdcfe">font-size</span>:  <span style="color:#ce9178">var(--font-size-lg)</span>;
+}</div>
+  <div class="output-box mt-3">
+    <label class="fw-semibold me-2">Change theme colour:</label>
+    <input type="color" value="#006064" oninput="document.getElementById('cssVarDemo').style.background=this.value; document.getElementById('cssVarDemo').style.borderColor=this.value;">
+    <div id="cssVarDemo" class="mt-3 p-3 text-white text-center rounded fw-bold" style="background:#006064; transition:background 0.3s;">
+      This box uses a CSS variable colour — change it above!
+    </div>
+  </div>
+</div>
+
+ 
+
+
+<footer class="text-center py-4 text-muted" style="border-top:1px solid #dee2e6;">
+  <a href="html.html">&#8592; HTML</a> &nbsp;|&nbsp; <a href="index.html">Home</a> &nbsp;|&nbsp; <a href="bootstrap.html">Bootstrap &rarr;</a>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+function replayAnim() {
+  var el = document.getElementById('slideElem');
+  el.style.animation = 'none';
+  el.offsetHeight;
+  el.style.animation = 'slideIn 1s ease';
+}
+</script>
+</body>
+</html>

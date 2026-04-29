@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JavaScript - Portfolio</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  body { font-family: 'Segoe UI', sans-serif; background: #f8f9fa; }
+  .hero { background: linear-gradient(135deg, #e65100, #f57c00); color: white; padding: 60px 0; }
+  .example-box { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 2px 15px rgba(0,0,0,0.08); margin-bottom: 30px; }
+  .code-block { background: #1e1e1e; color: #d4d4d4; padding: 16px; border-radius: 8px; font-family: monospace; font-size: 0.88rem; overflow-x: auto; white-space: pre; }
+  .kw { color: #569cd6; }
+  .fn { color: #dcdcaa; }
+  .str{ color: #ce9178; }
+  .cm { color: #6a9955; }
+  .output-box { border: 2px dashed #dee2e6; border-radius: 8px; padding: 16px; background: #fdfdfd; margin-top: 12px; }
+  .nav-link { color: rgba(255,255,255,0.85) !important; }
+  .nav-link:hover { color: #fff !important; }
+  #todoList li { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; border-radius: 6px; margin-bottom: 6px; background: #fff3e0; border-left: 4px solid #f57c00; }
+  .colour-box { width: 80px; height: 80px; border-radius: 8px; transition: background 0.3s; }
+  #counter-display { font-size: 3rem; font-weight: bold; color: #e65100; }
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg" style="background:#e65100;">
+  <div class="container">
+    <a class="navbar-brand text-white fw-bold" href="index.html">&#8592; Home</a>
+    
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="fullstack.html">Full Stack</a></li>
+        <li class="nav-item"><a class="nav-link" href="html.html">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" href="css.html">CSS</a></li>
+        <li class="nav-item"><a class="nav-link" href="bootstrap.html">Bootstrap</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Me</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="hero text-center">
+  <div class="container">
+    <h1 class="display-5 fw-bold">&#9889; JavaScript</h1>
+    <p class="lead">The programming language of the web — making pages dynamic and interactive</p>
+  </div>
+</section>
+
+<div class="container py-5">
+
+  <p class="fs-5 mb-5">JavaScript (JS) is the only programming language that runs natively in web browsers. It allows developers to manipulate the DOM, respond to user events, fetch data from APIs, validate forms, and build complex single-page applications. It also runs on the server with Node.js.</p>
+
+  <!-- DOM Manipulation -->
+  <div class="example-box">
+    <h3 class="fw-bold">&#128196; 1. DOM Manipulation</h3>
+    <p>The DOM (Document Object Model) is a tree representation of the HTML page. JavaScript can select, read, modify, add, or remove any element in real time.</p>
+    <div class="code-block"><span class="cm">// Select an element</span>
+<span class="kw">const</span> heading = document.<span class="fn">getElementById</span>(<span class="str">'myHeading'</span>);
+
+<span class="cm">// Change content and style</span>
+heading.textContent = <span class="str">'Updated!'</span>;
+heading.style.color = <span class="str">'red'</span>;
+
+<span class="cm">// Create and append a new element</span>
+<span class="kw">const</span> p = document.<span class="fn">createElement</span>(<span class="str">'p'</span>);
+p.textContent = <span class="str">'New paragraph'</span>;
+document.body.<span class="fn">appendChild</span>(p);</div>
+    <div class="output-box">
+      <strong>Live Demo:</strong>
+      <div class="mt-3">
+        <h4 id="domHeading" class="fw-bold">Original Heading</h4>
+        <div class="d-flex gap-2 flex-wrap mt-2">
+          <button class="btn btn-warning btn-sm" onclick="document.getElementById('domHeading').textContent='Text Changed!'">Change Text</button>
+          <button class="btn btn-danger btn-sm" onclick="document.getElementById('domHeading').style.color='red'">Red Colour</button>
+          <button class="btn btn-success btn-sm" onclick="document.getElementById('domHeading').style.color='green'">Green Colour</button>
+          <button class="btn btn-secondary btn-sm" onclick="document.getElementById('domHeading').textContent='Original Heading'; document.getElementById('domHeading').style.color=''">Reset</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Events -->
+  <div class="example-box">
+    <h3 class="fw-bold">&#128073; 2. Event Listeners</h3>
+    <p>JavaScript responds to user interactions through event listeners. Events include <code>click</code>, <code>keyup</code>, <code>mouseover</code>, <code>submit</code>, and many more.</p>
+    <div class="code-block"><span class="kw">const</span> btn = document.<span class="fn">getElementById</span>(<span class="str">'myBtn'</span>);
+
+btn.<span class="fn">addEventListener</span>(<span class="str">'click'</span>, <span class="kw">function</span>() {
+  <span class="fn">alert</span>(<span class="str">'Button clicked!'</span>);
+});
+
+input.<span class="fn">addEventListener</span>(<span class="str">'keyup'</span>, (e) => {
+  display.textContent = e.target.value;
+});</div>
+    <div class="output-box">
+      <strong>Live Demo — Counter with events:</strong>
+      <div class="text-center mt-3">
+        <div id="counter-display">0</div>
+        <div class="d-flex justify-content-center gap-3 mt-2">
+          <button class="btn btn-danger btn-lg" onclick="updateCounter(-1)">&#8722; Decrease</button>
+          <button class="btn btn-success btn-lg" onclick="updateCounter(1)">&#43; Increase</button>
+        </div>
+        <button class="btn btn-outline-secondary btn-sm mt-2" onclick="document.getElementById('counter-display').textContent=0; counterVal=0;">Reset</button>
+      </div>
+      <hr>
+      <strong>Live typing demo:</strong>
+      <input type="text" class="form-control mt-2" placeholder="Type something..." oninput="document.getElementById('typeOutput').textContent=this.value||'You will see your text here...'">
+      <p class="mt-2 text-muted" id="typeOutput">You will see your text here...</p>
+    </div>
+  </div>
+
+  <!-- Arrays & Functions -->
+  <div class="example-box">
+    <h3 class="fw-bold">&#128203; 3. Arrays, Functions &amp; the Todo App</h3>
+    <p>This demonstrates arrays, functions, event handling, and dynamic DOM updates together — common patterns in real JS applications.</p>
+    <div class="code-block"><span class="kw">let</span> todos = [];
+
+<span class="kw">function</span> <span class="fn">addTodo</span>(text) {
+  todos.<span class="fn">push</span>({ text, done: <span class="kw">false</span> });
+  <span class="fn">renderTodos</span>();
+}
+
+<span class="kw">function</span> <span class="fn">renderTodos</span>() {
+  list.innerHTML = todos.<span class="fn">map</span>((t, i) =>
+    <span class="str">`&lt;li&gt;${t.text} &lt;button onclick="remove(${i})"&gt;X&lt;/button&gt;&lt;/li&gt;`</span>
+  ).<span class="fn">join</span>(<span class="str">''</span>);
+}</div>
+    <div class="output-box">
+      <strong>Live Todo App:</strong>
+      <div class="d-flex gap-2 mt-2">
+        <input type="text" id="todoInput" class="form-control" placeholder="Add a task...">
+        <button class="btn btn-warning" onclick="addTodo()">Add</button>
+      </div>
+      <ul class="list-unstyled mt-3" id="todoList"></ul>
+      <p class="text-muted small" id="todoEmpty">No tasks yet. Add one above!</p>
+    </div>
+  </div>
+
+  <!-- Fetch API -->
+  <div class="example-box">
+    <h3 class="fw-bold">&#127760; 4. Fetch API — Calling External APIs</h3>
+    <p>The <code>fetch()</code> function is used to make HTTP requests to APIs. It returns a Promise, which is handled with <code>.then()</code> or <code>async/await</code>. This is fundamental to dynamic, data-driven web apps.</p>
+    <div class="code-block"><span class="cm">// Using async/await to fetch a random joke</span>
+<span class="kw">async function</span> <span class="fn">getJoke</span>() {
+  <span class="kw">const</span> res = <span class="kw">await</span> <span class="fn">fetch</span>(<span class="str">'https://official-joke-api.appspot.com/random_joke'</span>);
+  <span class="kw">const</span> data = <span class="kw">await</span> res.<span class="fn">json</span>();
+  console.<span class="fn">log</span>(data.setup, data.punchline);
+}</div>
+    <div class="output-box">
+      <strong>Live Demo — Fetch a random joke from an API:</strong>
+      <div class="mt-3">
+        <button class="btn btn-warning" onclick="fetchJoke()">&#127916; Fetch Random Joke</button>
+        <div id="jokeOutput" class="mt-3"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Local Storage -->
+  <div class="example-box">
+    <h3 class="fw-bold">&#128190; 5. Local Storage</h3>
+    <p>Local Storage allows data to persist in the browser between sessions. It stores key-value pairs as strings and is useful for saving user preferences or draft content.</p>
+    <div class="code-block"><span class="cm">// Save to local storage</span>
+localStorage.<span class="fn">setItem</span>(<span class="str">'name'</span>, <span class="str">'Alice'</span>);
+
+<span class="cm">// Read from local storage</span>
+<span class="kw">const</span> name = localStorage.<span class="fn">getItem</span>(<span class="str">'name'</span>); <span class="cm">// 'Alice'</span>
+
+<span class="cm">// Remove an item</span>
+localStorage.<span class="fn">removeItem</span>(<span class="str">'name'</span>);</div>
+    <div class="output-box">
+      <strong>Live Demo — Your name persists on page refresh:</strong>
+      <div class="d-flex gap-2 mt-2">
+        <input type="text" id="lsInput" class="form-control" placeholder="Enter your name..." oninput="localStorage.setItem('portfolioName', this.value); document.getElementById('lsOutput').textContent='Saved: '+this.value">
+      </div>
+      <p class="mt-2" id="lsOutput"></p>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <strong>&#128161; Summary:</strong> JavaScript makes web pages dynamic. From simple DOM manipulation and event handling, to calling external APIs and managing application state — JS is the engine that powers modern, interactive web applications both in the browser and on the server (via Node.js).
+  </div>
+
+</div>
+
+<footer class="text-center py-4 text-muted" style="border-top:1px solid #dee2e6;">
+  <a href="bootstrap.html">&#8592; Bootstrap</a> &nbsp;|&nbsp; <a href="index.html">Home</a>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+var counterVal = 0;
+function updateCounter(n) {
+  counterVal += n;
+  document.getElementById('counter-display').textContent = counterVal;
+}
+
+var todos = [];
+function addTodo() {
+  var input = document.getElementById('todoInput');
+  var text = input.value.trim();
+  if (!text) return;
+  todos.push(text);
+  input.value = '';
+  renderTodos();
+}
+function removeTodo(i) {
+  todos.splice(i, 1);
+  renderTodos();
+}
+function renderTodos() {
+  var list = document.getElementById('todoList');
+  var empty = document.getElementById('todoEmpty');
+  if (todos.length === 0) { list.innerHTML = ''; empty.style.display = ''; return; }
+  empty.style.display = 'none';
+  list.innerHTML = todos.map(function(t, i) {
+    return '<li>' + t + '<button class="btn btn-sm btn-danger" onclick="removeTodo(' + i + ')">Remove</button></li>';
+  }).join('');
+}
+
+async function fetchJoke() {
+  var out = document.getElementById('jokeOutput');
+  out.innerHTML = '<div class="spinner-border spinner-border-sm text-warning me-2"></div>Loading...';
+  try {
+    var res = await fetch('https://official-joke-api.appspot.com/random_joke');
+    var data = await res.json();
+    out.innerHTML = '<div class="alert alert-warning"><strong>' + data.setup + '</strong><br><em>' + data.punchline + '</em></div>';
+  } catch(e) {
+    out.innerHTML = '<div class="alert alert-danger">Could not fetch joke. Check your connection.</div>';
+  }
+}
+
+// Restore local storage demo on load
+var savedName = localStorage.getItem('portfolioName');
+if (savedName) {
+  document.getElementById('lsInput').value = savedName;
+  document.getElementById('lsOutput').textContent = 'Saved: ' + savedName;
+}
+</script>
+</body>
+</html>

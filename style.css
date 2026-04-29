@@ -1,0 +1,36 @@
+/* General Styles */
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f8f9fa; color: #333; }
+.hero { color: white; padding: 60px 0; }
+.example-box { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 2px 15px rgba(0,0,0,0.08); margin-bottom: 30px; }
+
+/* Code Blocks - Simple and realistic */
+.code-block { 
+    background: #282c34; 
+    color: #abb2bf; 
+    padding: 20px; 
+    border-radius: 8px; 
+    font-family: 'Consolas', 'Monaco', monospace; 
+    font-size: 0.9rem; 
+    overflow-x: auto; 
+    display: block;
+    margin: 15px 0;
+}
+
+.output-box { border: 2px dashed #dee2e6; border-radius: 8px; padding: 16px; background: #fdfdfd; margin-top: 12px; }
+.nav-link-top { color: rgba(255,255,255,0.85) !important; }
+.nav-link-top:hover { color: #fff !important; }
+
+/* Home Card Styles */
+.card { transition: transform 0.2s; border: none; border-radius: 12px; }
+.card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+.badge-pill { border-radius: 50px; padding: 6px 14px; }
+
+/* Flex/Grid Demos */
+.flex-demo { display: flex; gap: 10px; flex-wrap: wrap; padding: 10px; background: #e0f7fa; border-radius: 8px; }
+.flex-item { background: #00acc1; color: white; padding: 12px 20px; border-radius: 6px; }
+.grid-demo { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.grid-item { background: #006064; color: white; padding: 20px; text-align: center; border-radius: 6px; }
+
+/* Animations */
+@keyframes slideIn { from { transform: translateX(-50px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+.slide-demo { animation: slideIn 1s ease; background: #006064; color: white; padding: 12px 20px; border-radius: 8px; display: inline-block; }

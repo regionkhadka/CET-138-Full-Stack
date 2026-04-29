@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What is Full Stack Development?</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  body { font-family: 'Segoe UI', sans-serif; background: #f8f9fa; }
+  .hero { background: linear-gradient(135deg, #1a1a2e, #0f3460); color: white; padding: 60px 0; }
+  .layer-card { border-radius: 12px; padding: 24px; margin-bottom: 16px; }
+  .frontend { background: #e3f2fd; border-left: 5px solid #1976d2; }
+  .backend  { background: #e8f5e9; border-left: 5px solid #388e3c; }
+  .database { background: #fff3e0; border-left: 5px solid #f57c00; }
+  .stack-diagram { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 2px 15px rgba(0,0,0,0.08); }
+  .arrow { text-align: center; font-size: 1.5rem; color: #888; margin: 4px 0; }
+  .tech-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; margin: 3px; font-weight: 500; }
+  .nav-link { color: rgba(255,255,255,0.85) !important; }
+  .nav-link:hover { color: #fff !important; }
+  code { background: #f1f3f5; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg" style="background:#0f3460;">
+  <div class="container">
+    <a class="navbar-brand text-white fw-bold" href="index.html">&#8592; Home</a>
+    
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="html.html">HTML</a></li>
+        <li class="nav-item"><a class="nav-link" href="css.html">CSS</a></li>
+        <li class="nav-item"><a class="nav-link" href="bootstrap.html">Bootstrap</a></li>
+        <li class="nav-item"><a class="nav-link" href="javascript.html">JavaScript</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Me</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="hero text-center">
+  <div class="container">
+    <h1 class="display-5 fw-bold">&#127760; What is Full Stack Development?</h1>
+    <p class="lead">Understanding every layer of a modern web application</p>
+  </div>
+</section>
+
+<div class="container py-5">
+
+  <div class="row mb-5">
+    <div class="col-lg-7">
+      <h2 class="fw-bold mb-3">Definition</h2>
+      <p class="fs-5">When I first started this course, I thought web development was just HTML and CSS. Full stack development is actually much more, it means being able to work on <strong>every part</strong> of a web application, from the button a user clicks, all the way down to the database storing their data. A full stack developer connects all these pieces together.</p>
+      <p>The term "stack" refers to the collection of technologies used together to build a complete application. Common stacks include:</p>
+      <ul>
+        <li><strong>MEAN</strong> — MongoDB, Express, Angular, Node.js</li>
+        <li><strong>MERN</strong> — MongoDB, Express, React, Node.js</li>
+        <li><strong>LAMP</strong> — Linux, Apache, MySQL, PHP</li>
+        <li><strong>JAMstack</strong> — JavaScript, APIs, Markup</li>
+      </ul>
+    </div>
+    <div class="col-lg-5">
+      <div class="stack-diagram">
+        <h5 class="fw-bold text-center mb-3">The Three Layers</h5>
+        <div class="layer-card frontend">
+          <strong>&#127760; Frontend (Client Side)</strong><br>
+          <small>What the user sees and interacts with in their browser.</small><br>
+          <span class="tech-badge" style="background:#bbdefb;color:#0d47a1">HTML</span>
+          <span class="tech-badge" style="background:#bbdefb;color:#0d47a1">CSS</span>
+          <span class="tech-badge" style="background:#bbdefb;color:#0d47a1">JavaScript</span>
+          <span class="tech-badge" style="background:#bbdefb;color:#0d47a1">React</span>
+        </div>
+        <div class="arrow">&#8597; HTTP Requests &amp; Responses</div>
+        <div class="layer-card backend">
+          <strong>&#9881;&#65039; Backend (Server Side)</strong><br>
+          <small>Business logic, authentication, data processing.</small><br>
+          <span class="tech-badge" style="background:#c8e6c9;color:#1b5e20">Node.js</span>
+          <span class="tech-badge" style="background:#c8e6c9;color:#1b5e20">PHP</span>
+          <span class="tech-badge" style="background:#c8e6c9;color:#1b5e20">Python</span>
+          <span class="tech-badge" style="background:#c8e6c9;color:#1b5e20">Express</span>
+        </div>
+        <div class="arrow">&#8597; SQL / NoSQL Queries</div>
+        <div class="layer-card database">
+          <strong>&#128452; Database</strong><br>
+          <small>Persistent data storage and retrieval.</small><br>
+          <span class="tech-badge" style="background:#ffe0b2;color:#e65100">MySQL</span>
+          <span class="tech-badge" style="background:#ffe0b2;color:#e65100">MongoDB</span>
+          <span class="tech-badge" style="background:#ffe0b2;color:#e65100">PostgreSQL</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <h2 class="fw-bold mb-4">How a Request Flows Through the Stack</h2>
+  <div class="row g-3 mb-5">
+    <div class="col-md-4">
+      <div class="card h-100 p-3 border-0 shadow-sm" style="border-radius:12px;">
+        <div class="fw-bold text-primary mb-2">1. User makes a request</div>
+        <p class="text-muted small mb-0">A user visits a URL or clicks a button in their browser. The browser sends an HTTP request to the server. Example: <code>GET /products</code></p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100 p-3 border-0 shadow-sm" style="border-radius:12px;">
+        <div class="fw-bold text-success mb-2">2. Server processes the request</div>
+        <p class="text-muted small mb-0">The backend receives the request, applies business logic, queries the database if needed, and prepares a response. Example: fetch all products from the database.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100 p-3 border-0 shadow-sm" style="border-radius:12px;">
+        <div class="fw-bold text-warning mb-2">3. Response rendered to user</div>
+        <p class="text-muted small mb-0">The server sends back HTML, JSON, or other data. The browser renders it. JavaScript may update the page dynamically without a full reload (AJAX/fetch).</p>
+      </div>
+    </div>
+  </div>
+<div class="example-box" style="background:white; border-radius:12px; padding:24px; box-shadow:0 2px 15px rgba(0,0,0,0.08); margin-bottom:30px;">
+  <h4 class="fw-bold">&#128196; A Simple Full Stack Example</h4>
+  <p>This shows how a frontend fetch request talks to a backend API, which queries a database and returns JSON data.</p>
+  <div style="background:#1e1e1e; color:#d4d4d4; padding:16px; border-radius:8px; font-family:monospace; font-size:0.88rem; white-space:pre;"><span style="color:#6a9955">// FRONTEND — JavaScript fetch call</span>
+<span style="color:#569cd6">fetch</span>(<span style="color:#ce9178">'/api/users'</span>)
+  .<span style="color:#dcdcaa">then</span>(res => res.<span style="color:#dcdcaa">json</span>())
+  .<span style="color:#dcdcaa">then</span>(data => console.<span style="color:#dcdcaa">log</span>(data));
+
+<span style="color:#6a9955">// BACKEND — Node.js/Express route</span>
+app.<span style="color:#dcdcaa">get</span>(<span style="color:#ce9178">'/api/users'</span>, (req, res) => {
+  db.<span style="color:#dcdcaa">query</span>(<span style="color:#ce9178">'SELECT * FROM users'</span>, (result) => {
+    res.<span style="color:#dcdcaa">json</span>(result);
+  });
+});</div>
+</div>
+  <hr>
+
+  <h2 class="fw-bold mb-4">Frontend vs Backend vs Full Stack</h2>
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>Role</th>
+          <th>Focus</th>
+          <th>Technologies</th>
+          <th>Responsibility</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Frontend Developer</strong></td>
+          <td>Client-side</td>
+          <td>HTML, CSS, JS, React, Vue</td>
+          <td>UI, UX, visual design, responsiveness</td>
+        </tr>
+        <tr>
+          <td><strong>Backend Developer</strong></td>
+          <td>Server-side</td>
+          <td>Node.js, PHP, Python, Java</td>
+          <td>APIs, auth, business logic, databases</td>
+        </tr>
+        <tr class="table-success">
+          <td><strong>Full Stack Developer</strong></td>
+          <td>Both layers</td>
+          <td>All of the above</td>
+          <td>End-to-end development of features</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  
+
+</div>
+
+<footer class="text-center py-4 text-muted" style="border-top:1px solid #dee2e6;">
+  <a href="index.html" class="text-decoration-none">&#8592; Back to Home</a> &nbsp;|&nbsp; <a href="html.html">Html &rarr;</a>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

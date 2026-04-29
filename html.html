@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  body { font-family: 'Segoe UI', sans-serif; background: #f8f9fa; }
+  .hero { background: linear-gradient(135deg, #b71c1c, #e53935); color: white; padding: 60px 0; }
+  .example-box { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 2px 15px rgba(0,0,0,0.08); margin-bottom: 30px; }
+  .code-block { background: #1e1e1e; color: #d4d4d4; padding: 16px; border-radius: 8px; font-family: monospace; font-size: 0.9rem; overflow-x: auto; white-space: pre; }
+  .tag { color: #569cd6; }
+  .attr { color: #9cdcfe; }
+  .val  { color: #ce9178; }
+  .nav-link { color: rgba(255,255,255,0.85) !important; }
+  .nav-link:hover { color: #fff !important; }
+  .output-box { border: 2px dashed #dee2e6; border-radius: 8px; padding: 16px; background: #fdfdfd; margin-top: 12px; }
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg" style="background:#b71c1c;">
+  <div class="container">
+    <a class="navbar-brand text-white fw-bold" href="index.html">&#8592; Home</a>
+    
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="fullstack.html">Full Stack</a></li>
+        <li class="nav-item"><a class="nav-link" href="css.html">CSS</a></li>
+        <li class="nav-item"><a class="nav-link" href="bootstrap.html">Bootstrap</a></li>
+        <li class="nav-item"><a class="nav-link" href="javascript.html">JavaScript</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Me</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="hero text-center">
+  <div class="container">
+    <h1 class="display-5 fw-bold">&#128196; HTML</h1>
+    <p class="lead">HyperText Markup Language — the structure and content of the web</p>
+  </div>
+</section>
+
+<div class="container py-5">
+
+  <p class="fs-5 mb-5">HTML was the first thing I learned on this course and it forms the backbone of everything we build. Without HTML there is no structure — no headings, no forms, no tables. Every website we visit is built on HTML, even the most complex ones. In this section I've put together examples of the HTML concepts I've found most useful and interesting.</p>
+
+  <!-- Semantic HTML -->
+  <div class="example-box">
+    <h3 class="fw-bold">&#128278; 1. Semantic HTML Elements</h3>
+    <p>Semantic elements clearly describe their meaning to both the browser and the developer. Using them improves accessibility and search engine optimisation.</p>
+    <div class="code-block"><span class="tag">&lt;header&gt;</span>  — Top of the page, contains nav/logo<br><span class="tag">&lt;nav&gt;</span>     — Navigation links<br><span class="tag">&lt;main&gt;</span>    — Main content area (unique per page)<br><span class="tag">&lt;article&gt;</span> — Self-contained content (e.g. blog post)<br><span class="tag">&lt;section&gt;</span> — Thematic grouping of content<br><span class="tag">&lt;aside&gt;</span>   — Sidebar or supplementary content<br><span class="tag">&lt;footer&gt;</span>  — Bottom of the page</div>
+    <div class="output-box">
+      <strong>Why it matters:</strong> Screen readers and search engines understand the page structure better. A <code>&lt;nav&gt;</code> tells assistive technology "this is navigation" — a generic <code>&lt;div&gt;</code> does not.
+    </div>
+  </div>
+
+  <!-- Forms -->
+  <div class="example-box">
+    <h3 class="fw-bold">&#128221; 2. HTML Forms — Working Example</h3>
+    <p>Forms allow users to submit data. This example demonstrates various input types, labels, validation attributes, and the <code>fieldset</code> element for grouping.</p>
+    <div class="code-block"><span class="tag">&lt;form</span> <span class="attr">action</span>=<span class="val">"/submit"</span> <span class="attr">method</span>=<span class="val">"post"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="val">"email"</span><span class="tag">&gt;</span>Email:<span class="tag">&lt;/label&gt;</span>
+  <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"email"</span> <span class="attr">id</span>=<span class="val">"email"</span> <span class="attr">required</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;button</span> <span class="attr">type</span>=<span class="val">"submit"</span><span class="tag">&gt;</span>Submit<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/form&gt;</span></div>
+    <div class="output-box">
+      <strong>Live Demo — Contact Form:</strong>
+      <form class="mt-3" onsubmit="handleFormSubmit(event)">
+        <div class="mb-3">
+          <label for="demoName" class="form-label fw-semibold">Full Name</label>
+          <input type="text" id="demoName" class="form-control" placeholder="Region Khadka" required>
+        </div>
+        <div class="mb-3">
+          <label for="demoEmail" class="form-label fw-semibold">Email Address</label>
+          <input type="email" id="demoEmail" class="form-control" placeholder="regionkhadka@example.com" required>
+        </div>
+        <div class="mb-3">
+          <label for="demoAge" class="form-label fw-semibold">Age</label>
+          <input type="number" id="demoAge" class="form-control" min="18" max="100" placeholder="21">
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Preferred Contact</label><br>
+          <input type="radio" name="contact" value="email" id="byEmail"> <label for="byEmail">Email</label> &nbsp;
+          <input type="radio" name="contact" value="phone" id="byPhone"> <label for="byPhone">Phone</label>
+        </div>
+        <button type="submit" class="btn btn-danger">Submit Form</button>
+        <div id="formResult" class="mt-3"></div>
+      </form>
+    </div>
+    <p class="text-muted small mt-2">This form uses <code>type="email"</code>, <code>type="number"</code>, <code>min/max</code> attributes for validation, and <code>required</code> to enforce mandatory fields — all native HTML5 features.</p>
+  </div>
+
+  <!-- Tables -->
+  <div class="example-box">
+    <h3 class="fw-bold">&#128200; 3. HTML Tables</h3>
+    <p>Tables are used to display structured, tabular data. Proper use of <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;th scope&gt;</code> improves both semantics and accessibility.</p>
+    <div class="code-block"><span class="tag">&lt;table&gt;</span>
+  <span class="tag">&lt;thead&gt;</span>
+    <span class="tag">&lt;tr&gt;</span><span class="tag">&lt;th</span> <span class="attr">scope</span>=<span class="val">"col"</span><span class="tag">&gt;</span>Name<span class="tag">&lt;/th&gt;&lt;/tr&gt;</span>
+  <span class="tag">&lt;/thead&gt;</span>
+  <span class="tag">&lt;tbody&gt;</span>
+    <span class="tag">&lt;tr&gt;</span><span class="tag">&lt;td&gt;</span>Alice<span class="tag">&lt;/td&gt;&lt;/tr&gt;</span>
+  <span class="tag">&lt;/tbody&gt;</span>
+<span class="tag">&lt;/table&gt;</span></div>
+    <div class="output-box">
+      <strong>Live Example:</strong>
+      <table class="table table-striped table-bordered mt-2">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Technology</th>
+            <th scope="col">Type</th>
+            <th scope="col">Layer</th>
+            <th scope="col">Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>HTML</td><td>Markup</td><td>Frontend</td><td>Page structure</td></tr>
+          <tr><td>CSS</td><td>Stylesheet</td><td>Frontend</td><td>Presentation</td></tr>
+          <tr><td>JavaScript</td><td>Programming</td><td>Frontend/Backend</td><td>Behaviour &amp; logic</td></tr>
+          <tr><td>Node.js</td><td>Runtime</td><td>Backend</td><td>Server-side JS</td></tr>
+          <tr><td>MySQL</td><td>Database</td><td>Database</td><td>Data storage</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Media -->
+  <div class="example-box">
+    <h3 class="fw-bold">&#127909; 4. Media Elements</h3>
+    <p>HTML5 introduced native support for audio and video without plugins. The <code>&lt;figure&gt;</code> and <code>&lt;figcaption&gt;</code> elements semantically wrap images with captions.</p>
+    <div class="code-block"><span class="tag">&lt;figure&gt;</span>
+  <span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="val">"photo.jpg"</span> <span class="attr">alt</span>=<span class="val">"Description"</span> <span class="attr">width</span>=<span class="val">"400"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;figcaption&gt;</span>A descriptive caption<span class="tag">&lt;/figcaption&gt;</span>
+<span class="tag">&lt;/figure&gt;</span></div>
+    <div class="output-box">
+      <figure class="text-center">
+        <img src="https://placehold.co/400x200/e53935/ffffff?text=HTML+Media+Element" alt="Example image placeholder" class="img-fluid rounded">
+        <figcaption class="text-muted mt-2"><em>Figure 1: The &lt;figcaption&gt; element provides an accessible caption for this image.</em></figcaption>
+      </figure>
+    </div>
+  </div>
+  <!---Input Type-->
+  <div class="example-box">
+  <h3 class="fw-bold">&#128273; 5. HTML5 Input Types &amp; Validation</h3>
+  <p>HTML5 added many new input types that provide built-in validation and mobile-friendly keyboards — no JavaScript needed.</p>
+  <div class="output-box">
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label class="form-label fw-semibold">Date <code>type="date"</code></label>
+        <input type="date" class="form-control">
+      </div>
+      <div class="col-md-6">
+        <label class="form-label fw-semibold">Colour <code>type="color"</code></label>
+        <input type="color" class="form-control form-control-color w-100" value="#e53935">
+      </div>
+      <div class="col-md-6">
+        <label class="form-label fw-semibold">Range <code>type="range"</code></label>
+        <input type="range" class="form-range" min="0" max="100" oninput="document.getElementById('rangeVal').textContent=this.value">
+        <span id="rangeVal">50</span>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label fw-semibold">URL <code>type="url"</code></label>
+        <input type="url" class="form-control" placeholder="https://example.com">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<footer class="text-center py-4 text-muted" style="border-top:1px solid #dee2e6;">
+  <a href="fullstack.html">&#8592; Fullstack</a> &nbsp;|&nbsp; 
+  <a href="index.html">Home</a> &nbsp;|&nbsp; 
+  <a href="css.html">CSS &rarr;</a>
+</footer>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+function handleFormSubmit(e) {
+  e.preventDefault();
+  const name = document.getElementById('demoName').value;
+  const email = document.getElementById('demoEmail').value;
+  document.getElementById('formResult').innerHTML =
+    '<div class="alert alert-success">&#10003; Form submitted! Name: <strong>' + name + '</strong>, Email: <strong>' + email + '</strong></div>';
+}
+</script>
+</body>
+</html>
